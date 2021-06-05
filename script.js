@@ -1,4 +1,3 @@
-/* test */
 const $gallery = document.querySelector('.gallery')
 const $btnPrev = $gallery.querySelector('.gallery-prev')
 const $btnNext = $gallery.querySelector('.gallery-next')
