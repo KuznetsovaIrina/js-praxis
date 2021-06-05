@@ -1,0 +1,221 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color:#e99c7e
+}
+
+/*
+    Gallery
+*/
+
+.gallery {
+    margin: 90px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-items {
+    height: 600px;
+    list-style: none;
+    position: relative;
+    background-color: #e99c7e;
+    border-radius: 5px;
+}
+
+.gallery-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition-duration: .7s;
+    overflow: hidden;
+}
+
+.gallery-item.active {
+    opacity: 1;
+}
+
+.gallery-img {
+    display: block;
+    border-radius: 5px;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: -50px;
+    left: 10px;
+    right: 10px;
+    z-index: 10;
+    background-color: rgba(233, 156, 126, .8);
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    padding: 15px 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-radius: 5px;
+    opacity: 0;
+    transition-delay: .2s;
+    transition-duration: .5s;
+}
+
+.gallery-item.active .gallery-caption {
+    opacity: 1;
+    bottom: 10px;
+}
+
+/*
+    Nav Buttons
+*/
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+    z-index: 20;
+}
+
+.gallery-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    opacity: .5;
+    transition: .3s;
+    margin: 0 10px;
+    width: 25px;
+    height: 25px;
+}
+
+.gallery-nav button:hover {
+    opacity: 1;
+}
+
+.gallery .icon {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+.gallery-autoplay {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    bottom: 70px;
+    right: 25px;
+    margin: 0;
+    z-index: 20;
+}
+
+.gallery-autoplay svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+}
+
+.gallery-autoplay svg.stop,
+.gallery-autoplay.active svg.play {
+    opacity: 0;
+}
+
+.gallery-autoplay svg.play,
+.gallery-autoplay.active svg.stop {
+    opacity: .6;
+}
+
+/*
+    Dots
+*/
+
+.gallery-dots {
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.gallery-dots li {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.gallery-dots li:first-child {
+    margin-left: 0;
+}
+
+.gallery-dots button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: -100px;
+    cursor: pointer;
+    border: 2px solid #e99c7e;
+    transition: .4s;
+    position: relative;
+    outline: 0 solid transparent;
+}
+
+.gallery-dots button:active,
+.gallery-dots button.active:active {
+    outline: 8px solid rgba(255, 255, 255, .3);
+}
+
+.gallery-dots button.active {
+    outline: 5px solid rgba(255, 255, 255, .1);
+}
+
+.gallery-dots button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    background-color: #e99c7e;
+    border-radius: 50%;
+    transition: .2s;
+}
+
+.gallery-dots button:hover::after {
+    width: 8px;
+    height: 8px;
+}
+
+.gallery-dots button.active::after {
+    width: 12px;
+    height: 12px;
+}
